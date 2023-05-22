@@ -65,3 +65,6 @@ class ConnectFour:
                 if board[row][col] == ' ':
                     return False
         return True
+
+    def moves_available(self, board):
+        return self.is_draw
