@@ -9,31 +9,35 @@ class ConnectFour:
         self.RED_MOVES = []
 
     def is_valid_move(self, board, move):
-        return board[0][move[1]] == ' '
+        return board.board[0][move[1]] == ' '
 
     def do_move(self, board, move):
         col = move[1]
         for row in range(5, -1, -1):
-            if board[row][col] == ' ':
-                board[row][col] = move[0]
+            if board.board[row][col] == ' ':
+                board.board[row][col] = move[0]
                 if move[0] == self.RED:
-                    self.RED_MOVES.append((row, col))
+                    board.RED_MOVES.append((row, col))
                 else:
-                    self.BLACK_MOVES.append((row, col))
+                    board.BLACK_MOVES.append((row, col))
                 break
 
     def undo_move(self, board, move):
         col = move[1]
         for row in range(6):
-            if board[row][col] == move[0]:
-                board[row][col] = ' '
+            if board.board[row][col] == move[0]:
+                board.board[row][col] = ' '
+                if move[0] == board.RED:
+                    board.RED_MOVES.remove((row, col))
+                else:
+                    board.BLACK_MOVES.remove((row, col))
                 break
 
     def is_winner(self, board, playersymbol):
         if playersymbol == self.RED:
-            playermoves = self.RED_MOVES
+            playermoves = board.RED_MOVES
         else:
-            playermoves = self.BLACK_MOVES
+            playermoves = board.BLACK_MOVES
 
         # horizontal check
         for row in range(6):
@@ -62,9 +66,16 @@ class ConnectFour:
     def is_draw(self, board):
         for row in range(6):
             for col in range(7):
-                if board[row][col] == ' ':
+                if board.board[row][col] == ' ':
                     return False
         return True
 
     def moves_available(self, board):
-        return self.is_draw
+        return self.is_draw(board)
+
+    def refresh_board(self, board):
+        board.board = []
+        for _ in range(6):
+            board.board.append(([' '] * 7))
+        board.BLACK_MOVES = []
+        board.RED_MOVES = []
