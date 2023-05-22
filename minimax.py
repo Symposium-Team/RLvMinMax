@@ -1,41 +1,3 @@
-def choose_move(self, board):
-    best_move = None
-    best_eval = float('-inf')
-    for move in board.legal_moves:
-        board.push(move)
-        eval_score = self.minimax(board, self.max_depth - 1, float('-inf'), float('inf'), False)
-        board.pop()
-        if eval_score > best_eval:
-            best_eval = eval_score
-            best_move = move
-    return best_move
-
-def minimax(self, board, depth, alpha, beta, maximizing_player):
-    if depth == 0 or board.is_game_over():
-        return self.evaluate_board(board)
-
-    if maximizing_player:
-        max_eval = float('-inf')
-        for move in board.legal_moves:
-            board.push(move)
-            eval_score = self.minimax(board, depth - 1, alpha, beta, False)
-            board.pop()
-            max_eval = max(max_eval, eval_score)
-            alpha = max(alpha, eval_score)
-            if beta <= alpha:
-                break
-        return max_eval
-    else:
-        min_eval = float('inf')
-        for move in board.legal_moves:
-            board.push(move)
-            eval_score = self.minimax(board, depth - 1, alpha, beta, True)
-            board.pop()
-            min_eval = min(min_eval, eval_score)
-            beta = min(beta, eval_score)
-            if beta <= alpha:
-                break
-        return min_eval
 
 class MiniMax:
     def __init__(self, depth, symbol):
@@ -48,10 +10,10 @@ class MiniMax:
 
         for col in range(7):
             move = (self.symbol, col)
-            if board.is_valid_move(move):
-                board.do_move(move)
+            if board.is_valid_move(board, move):
+                board.do_move(board, move)
                 eval_score = self.minmax(board, self.max_depth - 1, float('-inf'), float('inf'), False)
-                board.undo_move(move)
+                board.undo_move(board, move)
 
                 if eval_score > best_score:
                     best_score = eval_score
@@ -60,10 +22,18 @@ class MiniMax:
         return best_move
 
     def minmax(self, board, depth, alpha, beta, maximizingplayer):
-        if depth == 0 or not board.moves_available():
+        if depth == 0:
             symbol = self.symbol if maximizingplayer else 'red' if self.symbol == 'black' else 'red'
             score = self.evaluate_board(board, symbol)
             return score
+
+        if not board.moves_available(board):
+            if board.is_winner(board, self.symbol):
+                return 100
+            elif board.is_winner(board, 'red' if maximizingplayer else 'black'):
+                return -100
+            else:
+                return 0
 
         opp_symbol = 'red' if self.symbol == 'black' else 'black'                                                  ''
         if maximizingplayer:
@@ -84,7 +54,7 @@ class MiniMax:
             min_score = float('inf')
             for col in range(7):
                 move = (opp_symbol, col)
-                if board.is_valid_move(move):
+                if board.is_valid_move(board, move):
                     board.do_move(move)
                     eval_score = self.minmax(board, depth - 1, alpha, beta, True)
                     board.undo_move(move)
