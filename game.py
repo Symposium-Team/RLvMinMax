@@ -33,35 +33,44 @@ class ConnectFour:
                     board.BLACK_MOVES.remove((row, col))
                 break
 
-    def is_winner(self, board, playersymbol):
-        if playersymbol == self.RED:
-            playermoves = board.RED_MOVES
-        else:
-            playermoves = board.BLACK_MOVES
-
-        # horizontal check
+    def is_winner(self, board, player):
+        # Check horizontal
         for row in range(6):
             for col in range(4):
-                if (row, col) in playermoves and (row, col+1) in playermoves and (row, col+2) in playermoves and (row, col+3) in playermoves:
+                if board.board[row][col] == player and \
+                        board.board[row][col + 1] == player and \
+                        board.board[row][col + 2] == player and \
+                        board.board[row][col + 3] == player:
                     return True
 
-        # vertical check
+        # Check vertical
         for row in range(3):
             for col in range(7):
-                if (row, col) in playermoves and (row+1, col) in playermoves and (row+2, col) in playermoves and (row+2, col) in playermoves:
+                if board.board[row][col] == player and \
+                        board.board[row + 1][col] == player and \
+                        board.board[row + 2][col] == player and \
+                        board.board[row + 3][col] == player:
                     return True
 
-            # Check diagonal (top-left to bottom-right)
+        # Check diagonal (top-left to bottom-right)
         for row in range(3):
             for col in range(4):
-                if (row, col) in playermoves and (row+1, col+1) in playermoves and (row+2, col+2) in playermoves and (row+3, col+3) in playermoves:
+                if board.board[row][col] == player and \
+                        board.board[row + 1][col + 1] == player and \
+                        board.board[row + 2][col + 2] == player and \
+                        board.board[row + 3][col + 3] == player:
                     return True
 
-            # Check diagonal (bottom-left to top-right)
+        # Check diagonal (bottom-left to top-right)
         for row in range(3, 6):
             for col in range(4):
-                if (row, col) in playermoves and (row-1, col+1) in playermoves and (row-2, col+2) in playermoves and (row-3, col+3) in playermoves:
+                if board.board[row][col] == player and \
+                        board.board[row - 1][col + 1] == player and \
+                        board.board[row - 2][col + 2] == player and \
+                        board.board[row - 3][col + 3] == player:
                     return True
+
+        return False
 
     def is_draw(self, board):
         for row in range(6):
