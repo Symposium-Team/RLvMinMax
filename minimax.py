@@ -102,6 +102,6 @@ class MiniMax:
             score += 2
 
         if window.count(opp_symbol) == 3 and window.count(' ') == 1:
-            score -= 4
+            score -= 5
 
         return score
