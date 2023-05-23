@@ -28,12 +28,12 @@ class MiniMax:
             return score
 
         if not board.moves_available(board):
-            if board.is_winner(board, self.symbol):
-                return 100
-            elif board.is_winner(board, 'red' if maximizingplayer else 'black'):
-                return -100
-            else:
-                return 0
+            return 0
+
+        if board.is_winner(board, self.symbol):
+            return 100
+        elif board.is_winner(board, 'red' if maximizingplayer else 'black'):
+            return -100
 
         opp_symbol = 'red' if self.symbol == 'black' else 'black'                                                  ''
         if maximizingplayer:
@@ -102,6 +102,6 @@ class MiniMax:
             score += 2
 
         if window.count(opp_symbol) == 3 and window.count(' ') == 1:
-            score -= 5
+            score -= 4
 
         return score
