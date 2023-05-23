@@ -97,7 +97,7 @@ if __name__ == '__main__':
         playerRL1.learning_rate = alpha
         playerRL1.exploration_factor = epsilon
 
-    print("Trained RL playing...")
+    print("Trained RL is playing...")
     for episode in range(1, 101):
         RL2score, randomscore = main(board, playerRL2, playerrandom, board.RED, board.BLACK)
         RL2scores.append(RL2score)
