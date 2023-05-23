@@ -51,7 +51,8 @@ def main(board, P1, P2, S1, S2):
             if board.is_draw(board):
                 reward = 0
                 state2 = ''.join([item for sublist in board.board for item in sublist])
-                P1.update_q_table(state1, move1[1], state2, reward)
+                if isinstance(P1, RLearning.QLearning):
+                    P1.update_q_table(state1, move1[1], state2, reward)
                 break
 
     return p1_score, p2_score
