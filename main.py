@@ -1,14 +1,14 @@
 import minimax
 import game
-import random
 import RLearning
+import matplotlib.pyplot as plt
 
 
 def main(board, P1, P2, S1, S2):
     p1_score = 0
     p2_score = 0
 
-    for _ in range(10000):
+    for _ in range(50000):
         board.refresh_board(board)
 
         while True:
@@ -47,8 +47,30 @@ def main(board, P1, P2, S1, S2):
 if __name__ == '__main__':
     board = game.ConnectFour()
     playermini = minimax.MiniMax(3, board.RED)
-    playerRL = RLearning.QLearning(board.BLACK, alpha=0.5)
+    playerRL = RLearning.QLearning(board.BLACK, alpha=0.6, epsilon=0.4)
 
-    for _ in range(1000):
-        print("iter:", _)
-        main(board, playerRL, playermini, playerRL.symbol, playermini.symbol)
+    episode = 1
+    RLscores = []
+    miniscores = []
+    while True:
+        print("Episode:", episode)
+        RLscore, miniscore = main(board, playerRL, playermini, playerRL.symbol, playermini.symbol)
+        RLscores.append(RLscore)
+        miniscores.append(miniscore)
+
+        if RLscore > miniscore or episode == 100:
+            break
+
+        # Decreasing the learning rate and the exploration rate dynamically
+        alpha = max(0.1, 0.8 / episode)
+        epsilon = max(0.1, 0.9 / episode)
+        playerRL.learning_rate = alpha
+        playerRL.exploration_factor = epsilon
+
+        episode += 1
+
+    episodes = [i for i in range(1, episode + 1)]
+    plt.plot(episodes, RLscores, label='Q-Learning')
+    plt.plot(episodes, miniscores, label='Minimax')
+    plt.legend()
+    plt.show()
