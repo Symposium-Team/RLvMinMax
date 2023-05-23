@@ -61,12 +61,10 @@ def main(board, P1, P2, S1, S2):
 if __name__ == '__main__':
     board = game.ConnectFour()
     playermini = minimax.MiniMax(3, board.RED)
-    playerRL1 = RLearning.QLearning(board.RED, alpha=0.9, epsilon=0.8)
-    playerRL2 = RLearning.QLearning(board.RED, alpha=0.9, epsilon=0.8)
+    playerRL = RLearning.QLearning(board.RED, alpha=0.9, epsilon=0.8)
     playerrandom = randomPlayer(board.BLACK)
 
-    RL1scores = []
-    RL2scores = []
+    RLscores = []
     miniscores = []
 
     # minimax plays
@@ -75,37 +73,24 @@ if __name__ == '__main__':
         miniscore, randomscore = main(board, playermini, playerrandom, board.RED, board.BLACK)
         miniscores.append(miniscore)
 
-    # untrained RL plays
-    print("Untrained RL is playing...")
-    for episode in range(1, 1001):
-        RL1score, randomscore = main(board, playerRL1, playerrandom, board.RED, board.BLACK)
-        RL1scores.append(RL1score)
-
-        # Changing the learning rate and the exploration rate dynamically
-        alpha = max(0.1, 0.8 / episode)
-        epsilon = max(0.1, 0.9 / episode)
-        playerRL1.learning_rate = alpha
-        playerRL1.exploration_factor = epsilon
-
-    # other RL plays
+    # RL plays
     print("Training the other RL player...")
     for episode in range(1, 5001):
-        main(board, playerRL2, playerrandom, board.RED, board.BLACK)
+        main(board, playerRL, playerrandom, board.RED, board.BLACK)
 
         # Changing the learning rate and the exploration rate dynamically
         alpha = max(0.1, 0.8 / episode)
         epsilon = max(0.1, 0.9 / episode)
-        playerRL2.learning_rate = alpha
-        playerRL2.exploration_factor = epsilon
+        playerRL.learning_rate = alpha
+        playerRL.exploration_factor = epsilon
 
     print("Trained RL is playing...")
     for episode in range(1, 1001):
-        RL2score, randomscore = main(board, playerRL2, playerrandom, board.RED, board.BLACK)
-        RL2scores.append(RL2score)
+        RLscore, randomscore = main(board, playerRL, playerrandom, board.RED, board.BLACK)
+        RLscores.append(RLscore)
 
     episodes = [i for i in range(1, 1001)]
-    plt.plot(episodes, RL1scores, label='Untrained Q-Learning')
-    plt.plot(episodes, RL2scores, label='Trained Q-Learning')
+    plt.plot(episodes, RLscores, label='Trained Q-Learning')
     plt.plot(episodes, miniscores, label='Minimax')
     plt.legend()
     plt.show()
