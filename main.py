@@ -47,7 +47,7 @@ def main(board, P1, P2, S1, S2):
 if __name__ == '__main__':
     board = game.ConnectFour()
     playermini = minimax.MiniMax(3, board.RED)
-    playerRL = RLearning.QLearning(board.BLACK, alpha=0.6, epsilon=0.4)
+    playerRL = RLearning.QLearning(board.BLACK, alpha=0.9, epsilon=0.8)
 
     episode = 1
     RLscores = []
@@ -58,10 +58,10 @@ if __name__ == '__main__':
         RLscores.append(RLscore)
         miniscores.append(miniscore)
 
-        if RLscore > miniscore or episode == 100:
+        if RLscore > miniscore or episode == 500:
             break
 
-        # Decreasing the learning rate and the exploration rate dynamically
+        # Changing the learning rate and the exploration rate dynamically
         alpha = max(0.1, 0.8 / episode)
         epsilon = max(0.1, 0.9 / episode)
         playerRL.learning_rate = alpha
