@@ -1,16 +1,27 @@
 import random
 import numpy as np
 
+
 class QLearning:
     def __init__(self, symbol, alpha=0.1, gamma=0.9, epsilon=0.1):
         self.symbol = symbol
-        self.learning_rate = alpha  # learning-rate
-        self.discount_factor = gamma  # discount-factor
-        self.exploration_factor = epsilon  # exploration-factor
+        self.learning_rate = alpha  # learning rate
+        self.discount_factor = gamma  # discount factor
+        self.exploration_factor = epsilon  # exploration factor
         self.q_table = {}
 
     def state_to_string(self, board):
-        return ''.join([item for sublist in board for item in sublist])
+        rows, cols = len(board), len(board[0])
+        binary_vector = np.zeros((rows, cols))
+
+        for i in range(rows):
+            for j in range(cols):
+                if board[i][j] == self.symbol:
+                    binary_vector[i][j] = 1
+                elif board[i][j] != ' ':
+                    binary_vector[i][j] = -1
+
+        return binary_vector.flatten().tostring()
 
     def choose_move(self, board):
         state = self.state_to_string(board.board).strip()
@@ -36,5 +47,6 @@ class QLearning:
 
         current_q_value = self.q_table[state][action]
         max_next_q_value = np.max(self.q_table[next_state])
-        new_q_value = (1 - self.learning_rate) * current_q_value + self.learning_rate * (reward + self.discount_factor * max_next_q_value)
+        new_q_value = (1 - self.learning_rate) * current_q_value + self.learning_rate * (
+                    reward + self.discount_factor * max_next_q_value)
         self.q_table[state][action] = new_q_value
