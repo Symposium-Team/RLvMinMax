@@ -17,7 +17,7 @@ class randomPlayer:
         return move
 
 
-def main(board, P1, P2, train=False):
+def main(board, P1, P2):
     p1_score = 0
     p2_score = 0
 
@@ -26,15 +26,10 @@ def main(board, P1, P2, train=False):
 
         while True:
             move1 = P1.choose_move(board)
-            state1 = ''.join([item for sublist in board.board for item in sublist])
             board.do_move(board, move1)
 
             if board.is_winner(board, P1.symbol):
                 p1_score += 1
-                reward = 100
-                state2 = ''.join([item for sublist in board.board for item in sublist])
-                if isinstance(P1, RLearning.QLearning) and train:
-                    P1.update_q_table(state1, move1[1], state2, reward)
                 break
 
             move2 = P2.choose_move(board)
@@ -42,17 +37,10 @@ def main(board, P1, P2, train=False):
 
             if board.is_winner(board, P2.symbol):
                 p2_score += 1
-                reward = -100
-                state2 = ''.join([item for sublist in board.board for item in sublist])
-                if isinstance(P1, RLearning.QLearning) and train:
-                    P1.update_q_table(state1, move1[1], state2, reward)
                 break
 
             if board.is_draw(board):
                 reward = 0
-                state2 = ''.join([item for sublist in board.board for item in sublist])
-                if isinstance(P1, RLearning.QLearning) and train:
-                    P1.update_q_table(state1, move1[1], state2, reward)
                 break
 
     return p1_score, p2_score
@@ -61,39 +49,37 @@ def main(board, P1, P2, train=False):
 if __name__ == '__main__':
     board = game.ConnectFour()
     playermini = minimax.MiniMax(3, board.RED)
-    playerRL = RLearning.QLearning(board.RED, alpha=0.9, epsilon=0.8)
+    playerRL = RLearning.QLearning(board.RED)
     playerrandom = randomPlayer(board.BLACK)
 
-    RLscores1 = []
-    RLscores2 = []
+    RL1scores = []
+    RL2scores = []
     miniscores = []
 
     # minimax plays
     print("Minimax is playing...")
-    for episode in range(100):
+    for episode in range(1000):
         miniscore, randomscore = main(board, playermini, playerrandom)
         miniscores.append(miniscore)
 
-    # RL plays
-    print("Training the RL player...")
-    for episode in range(1, 501):
-        RLscore, miniscore = main(board, playerRL, playermini, train=True)
-        RLscores1.append(RLscore)
+    print("RL is playing...")
+    for episode in range(1000):
+        RLscore, randomscore = main(board, playerRL, playerrandom)
+        RL1scores.append(RLscore)
 
-        # Changing the learning rate and the exploration rate dynamically
-        alpha = max(0.1, 0.8 / episode)
-        epsilon = max(0.1, 0.9 / episode)
-        playerRL.learning_rate = alpha
-        playerRL.exploration_factor = epsilon
+    # RL plays
+    playerRL.train(board)
 
     print("Trained RL is playing...")
-    for episode in range(1, 101):
+    for episode in range(1000):
         RLscore, randomscore = main(board, playerRL, playerrandom)
-        RLscores2.append(RLscore)
+        RL2scores.append(RLscore)
 
-    episodes = [i for i in range(1, 101)]
-    plt.plot(episodes, RLscores1, label='Mid-training Q-Learning')
-    plt.plot(episodes, RLscores2, label='Trained Q-Learning')
+    episodes = [i for i in range(1, 1001)]
+    plt.plot(episodes, RL1scores, label='Untrained Q-Learning')
+    plt.plot(episodes, RL2scores, label='Trained Q-Learning')
     plt.plot(episodes, miniscores, label='Minimax')
     plt.legend()
+    plt.ylabel("No: of wins")
+    plt.xlabel("No: of games")
     plt.show()
