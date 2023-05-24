@@ -5,8 +5,6 @@ class ConnectFour:
             self.board.append(([' '] * 7))
         self.RED = 'red'
         self.BLACK = 'black'
-        self.BLACK_MOVES = []
-        self.RED_MOVES = []
 
     def is_valid_move(self, board, move):
         return board.board[0][move[1]] == ' '
@@ -16,10 +14,6 @@ class ConnectFour:
         for row in range(5, -1, -1):
             if board.board[row][col] == ' ':
                 board.board[row][col] = move[0]
-                if move[0] == self.RED:
-                    board.RED_MOVES.append((row, col))
-                else:
-                    board.BLACK_MOVES.append((row, col))
                 break
 
     def undo_move(self, board, move):
@@ -27,10 +21,6 @@ class ConnectFour:
         for row in range(6):
             if board.board[row][col] == move[0]:
                 board.board[row][col] = ' '
-                if move[0] == board.RED:
-                    board.RED_MOVES.remove((row, col))
-                else:
-                    board.BLACK_MOVES.remove((row, col))
                 break
 
     def is_winner(self, board, player):
@@ -86,5 +76,3 @@ class ConnectFour:
         board.board = []
         for _ in range(6):
             board.board.append(([' '] * 7))
-        board.BLACK_MOVES = []
-        board.RED_MOVES = []
