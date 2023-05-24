@@ -21,7 +21,7 @@ def main(board, P1, P2):
     p1_score = 0
     p2_score = 0
 
-    for _ in range(500):
+    for _ in range(1000):
         board.refresh_board(board)
 
         while True:
@@ -49,7 +49,8 @@ def main(board, P1, P2):
 if __name__ == '__main__':
     board = game.ConnectFour()
     playermini = minimax.MiniMax(3, board.RED)
-    playerRL = RLearning.QLearning(board.RED)
+    playerRL1 = RLearning.QLearning(board.RED)
+    playerRL2 = RLearning.QLearning(board.RED, alpha=0.9)
     playerrandom = randomPlayer(board.BLACK)
 
     RL1scores = []
@@ -58,26 +59,28 @@ if __name__ == '__main__':
 
     # minimax plays
     print("Minimax is playing...")
-    for episode in range(1000):
+    for episode in range(500):
         miniscore, randomscore = main(board, playermini, playerrandom)
         miniscores.append(miniscore)
 
     print("RL is playing...")
-    for episode in range(1000):
-        RLscore, randomscore = main(board, playerRL, playerrandom)
+    playerRL1.train(board)
+
+    for episode in range(500):
+        RLscore, randomscore = main(board, playerRL1, playerrandom)
         RL1scores.append(RLscore)
 
     # RL plays
-    playerRL.train(board)
+    playerRL2.train(board)
 
     print("Trained RL is playing...")
-    for episode in range(1000):
-        RLscore, randomscore = main(board, playerRL, playerrandom)
+    for episode in range(500):
+        RLscore, randomscore = main(board, playerRL2, playerrandom)
         RL2scores.append(RLscore)
 
-    episodes = [i for i in range(1, 1001)]
-    plt.plot(episodes, RL1scores, label='Untrained Q-Learning')
-    plt.plot(episodes, RL2scores, label='Trained Q-Learning')
+    episodes = [i for i in range(1, 501)]
+    plt.plot(episodes, RL1scores, label='Q-Learning(alpha = 0.1)')
+    plt.plot(episodes, RL2scores, label='Q-Learning(alpha = 0.9)')
     plt.plot(episodes, miniscores, label='Minimax')
     plt.legend()
     plt.ylabel("No: of wins")
