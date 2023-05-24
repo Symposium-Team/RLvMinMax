@@ -1,0 +1,284 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.5.23)  25 MAY 2023 00:58
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./mmvsrl.tex
+(mmvsrl.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-03-30>
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/base\article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/base\size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (D:\ComputerProgramming\Installation\MikTex\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
+) (D:\ComputerProgramming\Installation\MikTex\tex/latex/listings\listings.sty
+\lst@mode=\count193
+\lst@gtempboxa=\box51
+\lst@token=\toks17
+\lst@length=\count194
+\lst@currlwidth=\dimen143
+\lst@column=\count195
+\lst@pos=\count196
+\lst@lostspace=\dimen144
+\lst@width=\dimen145
+\lst@newlines=\count197
+\lst@lineno=\count198
+\lst@maxwidth=\dimen146
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count199
+\lst@skipnumbers=\count266
+\lst@framebox=\box52
+)
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip50
+\enit@outerparindent=\dimen147
+\enit@toks=\toks18
+\enit@inbox=\box53
+\enit@count@id=\count267
+\enitdp@description=\count268
+)
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/l3backend\l3backend-pdfte
+x.def
+File: l3backend-pdftex.def 2023-03-30 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count269
+\l__pdf_internal_box=\box54
+) (mmvsrl.aux
+
+LaTeX Warning: Label `fig:example' multiply defined.
+
+
+LaTeX Warning: Label `fig:example' multiply defined.
+
+
+LaTeX Warning: Label `fig:example' multiply defined.
+
+
+LaTeX Warning: Label `fig:example' multiply defined.
+
+
+LaTeX Warning: Label `fig:example' multiply defined.
+
+
+LaTeX Warning: Label `fig:example' multiply defined.
+
+)
+\openout1 = `mmvsrl.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+
+(D:\ComputerProgramming\Installation\MikTex\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count270
+\scratchdimen=\dimen148
+\scratchbox=\box55
+\nofMPsegments=\count271
+\nofMParguments=\count272
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count273
+\MPscratchDim=\dimen149
+\MPnumerator=\count274
+\makeMPintoPDFobject=\count275
+\everyMPtoPDFconversion=\toks20
+)
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/epstopdf-pkg\epstopdf-bas
+e.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(D:\ComputerProgramming\Installation\MikTex\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+\c@lstlisting=\count276
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 9.
+ [1
+
+{C:/Users/sudip/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+[2] [3] [4]
+Overfull \hbox (2.83755pt too wide) in paragraph at lines 88--89
+[]\OT1/cmr/m/n/10 The \OT1/cmtt/m/n/10 get[]best[]move \OT1/cmr/m/n/10 method s
+e-lects the best move us-ing the Q-learning
+ []
+
+[5]
+<img 1.png, id=24, 409.7709pt x 327.3831pt>
+File: img 1.png Graphic file (type png)
+<use img 1.png>
+Package pdftex.def Info: img 1.png  used on input line 110.
+(pdftex.def)             Requested size: 207.0021pt x 165.37961pt.
+ [6 <./img 1.png>]
+Overfull \hbox (0.61172pt too wide) in paragraph at lines 169--170
+[]\OT1/cmr/m/n/10 Plays 100 games of QLearn-ing-Player against Ran-do-mA-gent a
+nd keeps
+ []
+
+<img 2.png, id=30, 424.2249pt x 327.3831pt>
+File: img 2.png Graphic file (type png)
+<use img 2.png>
+Package pdftex.def Info: img 2.png  used on input line 175.
+(pdftex.def)             Requested size: 310.4979pt x 239.6171pt.
+<img 3.png, id=31, 362.5545pt x 272.81924pt>
+File: img 3.png Graphic file (type png)
+<use img 3.png>
+Package pdftex.def Info: img 3.png  used on input line 181.
+(pdftex.def)             Requested size: 310.4979pt x 233.65834pt.
+[7] [8 <./img 2.png> <./img 3.png>] [9]
+<img 4.jpg, id=44, 551.81157pt x 429.85594pt>
+File: img 4.jpg Graphic file (type jpg)
+<use img 4.jpg>
+Package pdftex.def Info: img 4.jpg  used on input line 224.
+(pdftex.def)             Requested size: 310.4979pt x 241.8852pt.
+ [10 <./img 4.jpg>]
+<img 56.jpg, id=48, 963.6pt x 472.76625pt>
+File: img 56.jpg Graphic file (type jpg)
+<use img 56.jpg>
+Package pdftex.def Info: img 56.jpg  used on input line 261.
+(pdftex.def)             Requested size: 413.99895pt x 203.11238pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 261--262
+ [][] 
+ []
+
+[11]
+Overfull \hbox (31.48705pt too wide) in paragraph at lines 284--285
+[][][]\OT1/cmtt/m/n/10 init[][](state[]size, action[]size, learning[]rate, disc
+ount[]factor,
+ []
+
+[12 <./img 56.jpg>]
+Overfull \hbox (0.72208pt too wide) in paragraph at lines 299--300
+[]\OT1/cmtt/m/n/10 minimax(board, depth, alpha, beta, maximizing[]player)\OT1/c
+mr/m/n/10 : Im-
+ []
+
+
+Overfull \hbox (7.14099pt too wide) in paragraph at lines 305--306
+[]\OT1/cmtt/m/n/10 play[]game()\OT1/cmr/m/n/10 : Plays the chess game for the s
+pec-i-fied num-ber of episodes
+ []
+
+File: img 4.jpg Graphic file (type jpg)
+<use img 4.jpg>
+Package pdftex.def Info: img 4.jpg  used on input line 316.
+(pdftex.def)             Requested size: 310.4979pt x 241.8852pt.
+[13]
+Overfull \hbox (31.48705pt too wide) in paragraph at lines 335--336
+[][][]\OT1/cmtt/m/n/10 init[][](state[]size, action[]size, learning[]rate, disc
+ount[]factor,
+ []
+
+[14]
+Overfull \hbox (7.14099pt too wide) in paragraph at lines 352--353
+[]\OT1/cmtt/m/n/10 play[]game()\OT1/cmr/m/n/10 : Plays the chess game for the s
+pec-i-fied num-ber of episodes
+ []
+
+
+Overfull \hbox (24.39497pt too wide) in paragraph at lines 353--354
+[]\OT1/cmtt/m/n/10 plot[]results(qlearning[]wins, minimax[]wins, random[]wins, 
+draws)\OT1/cmr/m/n/10 :
+ []
+
+<img 9.png, id=62, 784.8522pt x 393.8715pt>
+File: img 9.png Graphic file (type png)
+<use img 9.png>
+Package pdftex.def Info: img 9.png  used on input line 365.
+(pdftex.def)             Requested size: 413.99895pt x 207.75925pt.
+
+Overfull \hbox (68.99895pt too wide) in paragraph at lines 365--366
+ [][] 
+ []
+
+[15 <./img 9.png>] [16]
+Overfull \hbox (4.63957pt too wide) in paragraph at lines 430--431
+\OT1/cmr/m/n/10 ca-pa-bil-i-ties and strate-gic plan-ning, re-sult-ing in vic-t
+o-ries against both the QLearn-
+ []
+
+[17] [18] [19] (mmvsrl.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3055 strings out of 476331
+ 48378 string characters out of 5788703
+ 1861660 words of memory out of 5000000
+ 23503 multiletter control sequences out of 15000+600000
+ 517391 words of font info for 49 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,6n,62p,574b,330s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\sudip\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1000.pk><D:/ComputerProgramming/Installation/MikTex/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb><D:/ComputerProgramming/Installation/MikTex/fonts/type1/public/a
+msfonts/cm/cmbx12.pfb><D:/ComputerProgramming/Installation/MikTex/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb><D:/ComputerProgramming/Installation/MikTex/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb><D:/ComputerProgramming/Installation/MikTex/f
+onts/type1/public/amsfonts/cm/cmr17.pfb><D:/ComputerProgramming/Installation/Mi
+kTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/ComputerProgramming/Installa
+tion/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on mmvsrl.pdf (19 pages, 415567 bytes).
+PDF statistics:
+ 115 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+
