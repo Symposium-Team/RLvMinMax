@@ -86,6 +86,9 @@ class QLearning:
                 if board.is_winner(board, self.symbol):
                     reward = 100
                     done = True
+                elif board.is_winner(board, board.RED if self.symbol == board.BLACK else board.BLACK):
+                    reward = -100
+                    done = True
                 elif board.is_draw(board):
                     reward = 0
                     done = True
