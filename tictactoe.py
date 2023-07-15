@@ -1,3 +1,6 @@
+import numpy as np
+import tensorflow as tf
+
 
 class Minimax:
     def __init__(self, game, player='X'):
@@ -55,3 +58,4 @@ class Minimax:
                 if beta <= alpha:
                     break
             return min_score
+
